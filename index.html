@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tinnyxz</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data: https:; font-src 'self' https://cdnjs.cloudflare.com; connect-src 'self' https://www.googleapis.com; media-src 'self';">
 <meta property="og:title" content="Tinnyxz">
 <meta property="og:description" content="✿Faço Alguns Vídeos De Genshin Impact✿">
 <meta name="theme-color" content="#ff4d4d">
@@ -32,22 +33,24 @@
 <div class="username">Tinnyxz</div>
 <div class="bio">
 ✿Faço Alguns Vídeos De Genshin Impact✿<br>
+<div class="sub-counter" id="yt-counter" style="display: none;">
+<i class="fab fa-youtube"></i> <span id="sub-number">0</span> Inscritos
+</div>
 </div>
 <div class="social-links">
-<a href="#" target="_blank"><i class="fab fa-youtube" title="YouTube"></i></a>
-<a href="#" target="_blank"><i class="fab fa-discord" title="Discord"></i></a>
-<a href="#" target="_blank"><i class="fab fa-steam" title="Steam"></i></a>
-<a href="#" target="_blank"><i class="fab fa-spotify" title="Spotify"></i></a> </div>
+<a href="https://youtube.com/@tinnyxz" target="_blank"><i class="fab fa-youtube" title="YouTube"></i></a>
+<a href="https://discord.com/invite/MHpmBgQuHr" target="_blank"><i class="fab fa-discord" title="Discord"></i></a>
+<a href="https://steamcommunity.com/id/Tinnyxz/" target="_blank"><i class="fab fa-steam" title="Steam"></i></a>
+<a href="https://open.spotify.com/user/31j5j6jk7vvc74liwxwu66kfug3q?si=e3fbe39b688e4972" target="_blank"><i class="fab fa-spotify" title="Spotify"></i></a> 
 </div>
-<div id="badges-container">
-</a>
+</div> <div id="badges-container">
 <a href="https://stats.fm/31j5j6jk7vvc74liwxwu66kfug3q" target="_blank" class="badge">
-<img src="source/statsfm.png" alt="GIF">
+<img src="source/statsfm.png" alt="Stats.fm">
 </a>
 <a href="https://pt.namemc.com/profile/TinnyXZ.1" target="_blank" class="badge">
-<img src="source/namemc.png" alt="GIF">
-<a href="https://github.com/BufosRegulariskkj" target="_blank" class="badge">
-<img src="source/github.png" alt="GIF">
+<img src="source/namemc.png" alt="NameMC">
+</a> <a href="https://github.com/BufosRegulariskkj" target="_blank" class="badge">
+<img src="source/github.png" alt="GitHub">
 </a>
 </div>
 <script>
@@ -56,17 +59,20 @@ function startExperience() {
   var content = document.getElementById('content');
    var volumeControl = document.getElementById('volume-control');
 	var badges = document.getElementById('badges-container');
-     var video = document.getElementById('bg-video');
-      var audio = document.getElementById('bg-audio');
-       overlay.style.opacity = '0';
-        setTimeout(function() { overlay.style.display = 'none'; }, 500);
-         content.style.display = 'block';
-          volumeControl.style.display = 'flex';
-		   badges.style.display = 'flex';
-            setTimeout(function() {
-             content.style.opacity = '1';
-              volumeControl.style.opacity = '1';
-			   badges.style.opacity = '1';
+	 var ytCounter = document.getElementById('yt-counter');
+      var video = document.getElementById('bg-video');
+       var audio = document.getElementById('bg-audio');
+        overlay.style.opacity = '0';
+         setTimeout(function() { overlay.style.display = 'none'; }, 500);
+          content.style.display = 'block';
+           volumeControl.style.display = 'flex';
+		    badges.style.display = 'flex';
+             setTimeout(function() {
+              content.style.opacity = '1';
+               volumeControl.style.opacity = '1';
+			    badges.style.opacity = '1';
+				 ytCounter.style.display = 'flex';
+				  buscarInscritos();
 }, 100);
 video.play();
  video.style.filter = "brightness(0.5)";
@@ -123,6 +129,116 @@ document.addEventListener("mouseleave", function() {
    content.style.transform = `translate(-50%, -50%) perspective(1000px) rotateX(0deg) rotateY(0deg)`;
 }
 });
+window.onload = function() {
+ document.getElementById('bg-video').load();
+}
+window.addEventListener('DOMContentLoaded', function() {
+ document.documentElement.style.overflowY = 'auto';
+  document.body.style.overflowY = 'auto';
+   var estiloBarra = document.createElement('style');
+    estiloBarra.innerHTML = `
+     ::-webkit-scrollbar {
+      display: none !important;
+}
+html, body {
+ -ms-overflow-style: none !important;  
+  scrollbar-width: none !important;  
+}
+`;
+document.head.appendChild(estiloBarra);
+});
+function aplicarInclinacao(e) {
+ var content = document.getElementById("content");
+  if (content.style.display === 'block') {
+   var rect = content.getBoundingClientRect();
+    var centroX = rect.left + rect.width / 2;
+     var centroY = rect.top + rect.height / 2;
+      var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+       var clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        var distanciaX = clientX - centroX;
+         var distanciaY = clientY - centroY;
+          var inclinacaoX = distanciaY / 25; 
+           var inclinacaoY = -(distanciaX / 25);
+            content.style.transform = `translate(-50%, -50%) perspective(1000px) rotateX(${inclinacaoX}deg) rotateY(${inclinacaoY}deg)`;
+}
+}
+document.addEventListener("mousemove", aplicarInclinacao);
+ document.addEventListener("touchmove", aplicarInclinacao);
+  function removerInclinacao() {
+   var content = document.getElementById("content");
+    if (content.style.display === 'block') {
+     content.style.transform = `translate(-50%, -50%) perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+}
+}
+document.addEventListener("mouseleave", removerInclinacao);
+ document.addEventListener("touchend", removerInclinacao);
+  function adaptarParaCelular() {
+   var larguraTela = window.innerWidth;
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || larguraTela <= 850;
+     if (isMobile && !document.getElementById('css-correcao-mobile')) {
+      var estiloMobile = document.createElement('style');
+       estiloMobile.id = 'css-correcao-mobile';
+        estiloMobile.innerHTML = `
+div#content {
+top: 40% !important; 
+width: 90% !important;
+padding: 20px !important;
+}
+div#badges-container {
+top: auto !important;
+bottom: 20px !important; 
+width: 95% !important;
+flex-wrap: wrap !important; 
+justify-content: center !important;
+gap: 15px !important;
+}
+.badge {
+width: 90px !important; 
+height: 70px !important;
+transition: all 0.3s ease !important;
+}
+.badge:active {
+transform: translateY(-5px) scale(1.1) !important;
+border-color: #ff4d4d !important;
+box-shadow: 0 10px 25px rgba(255, 77, 77, 0.5) !important;
+}
+.avatar { width: 90px !important; height: 90px !important; margin-bottom: 10px !important; }
+.username { font-size: 1.6rem !important; }
+.bio { font-size: 0.85rem !important; margin-bottom: 15px !important; }
+.social-links a { font-size: 1.5rem !important; }
+`;
+ document.head.appendChild(estiloMobile);
+} 
+else if (!isMobile && document.getElementById('css-correcao-mobile')) {
+ document.getElementById('css-correcao-mobile').remove();
+}
+}
+adaptarParaCelular();
+ window.addEventListener('resize', adaptarParaCelular);
+  window.addEventListener('DOMContentLoaded', function() {
+   document.documentElement.style.overflowY = 'auto';
+    document.body.style.overflowY = 'auto';
+     var estiloBarra = document.createElement('style');
+      estiloBarra.innerHTML = '::-webkit-scrollbar { display: none !important; } html, body { -ms-overflow-style: none !important; scrollbar-width: none !important; }';
+       document.head.appendChild(estiloBarra);
+});
+function buscarInscritos() {
+ const apiKey = 'AIzaSyCHwWjXL4liBS4fLDK_TkPz2W-JOZM5iHU'; 
+  const channelId = 'UCtP4iQkkmnCbQI-OqP8U1EA'; 
+   const url = `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`;
+    fetch(url)
+     .then(response => response.json())
+      .then(data => {
+       if (data.items && data.items.length > 0) {
+        const inscritos = data.items[0].statistics.subscriberCount;
+         document.getElementById('sub-number').innerText = Number(inscritos).toLocaleString('pt-BR');
+}
+})
+.catch(error => {
+ console.log('Erro ao puxar inscritos:', error);
+  document.getElementById('sub-number').innerText = "1.000"; 
+});
+}
 window.onload = function() {
  document.getElementById('bg-video').load();
 }
