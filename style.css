@@ -121,16 +121,17 @@ body::before {
 @keyframes bubbly-physics {
     0%, 100% {
         transform: translate(-50%, -50%) scale(1);
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+        box-shadow: 0 0 20px rgba(255, 77, 77, 0.3);
+        border-color: rgba(255, 255, 255, 0.15);
     }
     50% {
         transform: translate(-50%, -53%) scale(1.02);
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 15px 45px rgba(255, 77, 77, 0.8);
+        border-color: #ff4d4d;
     }
 }
 #content:hover {
-    animation: bubbly-physics 2.5s ease-in-out infinite;
+	animation: bubbly-physics 2s ease-in-out infinite; 
     cursor: grab;
 }
 #content:active {
@@ -218,7 +219,7 @@ a, a *, #overlay, #overlay *, .social-links a i {
 .badge {
     width: 300px;
     height: 225px;
-    background: rgba(20, 20, 20, 0.6); 
+    background: rgba(20, 20, 20, 0.6);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -236,6 +237,11 @@ a, a *, #overlay, #overlay *, .social-links a i {
     object-fit: cover;
 }
 .badge:hover {
+    transform: translateY(-8px) scale(1.1);
+    border-color: #ff4d4d;
+    box-shadow: 0 10px 25px rgba(255, 77, 77, 0.5);
+}
+div#content:hover {
     transform: translateY(-8px) scale(1.1);
     border-color: #ff4d4d;
     box-shadow: 0 10px 25px rgba(255, 77, 77, 0.5);
