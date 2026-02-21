@@ -129,7 +129,6 @@ body::before {
         border-color: rgba(255, 255, 255, 0.3);
     }
 } 
-
 #content:hover {
     animation: bubbly-physics 2.5s ease-in-out infinite;
     cursor: grab;
