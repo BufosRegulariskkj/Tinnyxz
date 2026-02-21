@@ -151,7 +151,8 @@ a, a *, #overlay, #overlay *, .social-links a i {
     z-index: 10;
     display: none;
     align-items: center;
-    gap: 15px;
+	justify-content: center;
+    gap: 5px;
     background: rgba(20, 20, 20, 0.6); 
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -203,3 +204,4 @@ a, a *, #overlay, #overlay *, .social-links a i {
 div#content {
     top: 200px;
 }
+
