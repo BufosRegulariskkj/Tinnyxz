@@ -26,7 +26,7 @@
 <img src="source/avatar.png" alt="Avatar" class="avatar">
 <div class="username">Tinnyxz</div>
 <div class="bio">
-✿Faço alguns Vídeos de Genshin Impact✿<br>
+✿Faço Alguns Vídeos De Genshin Impact✿<br>
 </div>
 <div class="social-links">
 <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -35,20 +35,34 @@
 <a href="#" target="_blank"><i class="fab fa-spotify"></i></a>
 </div>
 </div>
+<div id="badges-container">
+<a href="SEU_LINK_AQUI" target="_blank" class="badge">
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjRmMjI3MDIyZDU3MDUyZDM2M2JjNjRlZWI3ZWUxZThjMjZiZGVkYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LpwBqCorPvZC0/giphy.gif" alt="GIF">
+</a>
+<a href="SEU_LINK_AQUI" target="_blank" class="badge">
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjRmMjI3MDIyZDU3MDUyZDM2M2JjNjRlZWI3ZWUxZThjMjZiZGVkYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LpwBqCorPvZC0/giphy.gif" alt="GIF">
+</a>
+<a href="SEU_LINK_AQUI" target="_blank" class="badge">
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjRmMjI3MDIyZDU3MDUyZDM2M2JjNjRlZWI3ZWUxZThjMjZiZGVkYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LpwBqCorPvZC0/giphy.gif" alt="GIF">
+</a>
+</div>
 <script>
 function startExperience() {
  var overlay = document.getElementById('overlay');
   var content = document.getElementById('content');
-   var volumeControl = document.getElementById('volume-control'); 
-    var video = document.getElementById('bg-video');
-     var audio = document.getElementById('bg-audio');
-      overlay.style.opacity = '0';
-       setTimeout(function() { overlay.style.display = 'none'; }, 500);
-        content.style.display = 'block';
-         volumeControl.style.display = 'flex'; 
-          setTimeout(function() {
-           content.style.opacity = '1';
-            volumeControl.style.opacity = '1'; 
+   var volumeControl = document.getElementById('volume-control');
+	var badges = document.getElementById('badges-container');
+     var video = document.getElementById('bg-video');
+      var audio = document.getElementById('bg-audio');
+       overlay.style.opacity = '0';
+        setTimeout(function() { overlay.style.display = 'none'; }, 500);
+         content.style.display = 'block';
+          volumeControl.style.display = 'flex';
+		   badges.style.display = 'flex';
+            setTimeout(function() {
+             content.style.opacity = '1';
+              volumeControl.style.opacity = '1';
+			   badges.style.opacity = '1';
 }, 100);
 video.play();
  video.style.filter = "brightness(0.5)";
